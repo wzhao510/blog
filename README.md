@@ -8,5 +8,5 @@
 # 2.项目说明：
   - 前后端接口详见Blog接口文档.md
   - 本项目后端是对课程https://www.bilibili.com/video/BV14z4y1N7pg?p=38&vd_source=6f2682bc6b14e8270df75420b57524d6的实现
-  - 已经实现的前端代码big-event
+  - b站课程最终实现的前端代码big-event，不一定能和后端连通
   
