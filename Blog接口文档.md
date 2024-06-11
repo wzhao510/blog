@@ -1,4 +1,4 @@
-# 大事件接口文档-V1.0
+# Blog接口文档-V1.1
 
 ## 1. 用户相关接口
 
@@ -762,6 +762,81 @@ pageNum=1&pageSize=3&categoryId=2&state=草稿
 ```
 
 
+
+### 3.2.2 公共文章列表(条件分页)
+
+#### 3.2.1 基本信息
+
+> 请求路径：/article/public
+>
+> 请求方式：GET
+>
+> 接口描述：该接口用于根据条件查询文章,带分页
+
+#### 3.2.2 请求参数
+
+请求参数格式：queryString
+
+请求参数说明：
+
+| 参数名称   | 说明       | 类型   | 是否必须 | 备注           |      |
+| ---------- | ---------- | ------ | -------- | -------------- | ---- |
+| pageNum    | 当前页码   | number | 是       |                |      |
+| pageSize   | 每页条数   | number | 是       |                |      |
+| categoryId | 文章分类ID | number | 否       |                |      |
+| state      | 发布状态   | string | 否       | 已发布 \| 草稿 |      |
+
+请求数据样例：
+
+```shell
+pageNum=1&pageSize=3&categoryId=2&state=草稿
+```
+
+#### 3.2.3 响应数据
+
+响应数据类型：application/json
+
+响应参数说明：
+
+| 名称          | 类型   | 是否必须 | 默认值 | 备注                  | 其他信息     |
+| ------------- | ------ | -------- | ------ | --------------------- | ------------ |
+| code          | number | 必须     |        | 响应码, 0-成功,1-失败 |              |
+| message       | string | 非必须   |        | 提示信息              |              |
+| data          | object | 必须     |        | 返回的数据            |              |
+| \|-total      | number | 必须     |        | 总记录数              |              |
+| \|-items      | array  | 必须     |        | 数据列表              |              |
+| \|-id         | number | 非必须   |        | 主键ID                |              |
+| \|-title      | string | 非必须   |        | 文章标题              |              |
+| \|-content    | string | 非必须   |        | 文章正文              |              |
+| \|-coverImg   | string | 非必须   |        | 文章封面图像地址      |              |
+| \|-state      | string | 非必须   |        | 发布状态              | 已发布\|草稿 |
+| \|-categoryId | number | 非必须   |        | 文章分类ID            |              |
+| \|-createTime | string | 非必须   |        | 创建时间              |              |
+| \|-updateTime | string | 非必须   |        | 更新时间              |              |
+
+响应数据样例：
+
+```json
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "total": 1,
+        "items": [
+            {
+                "id": 5,
+                "title": "陕西旅游攻略",
+                "content": "兵马俑,华清池,法门寺,华山...爱去哪去哪...",
+                "coverImg": "https://big-event-gwd.oss-cn-beijing.aliyuncs.com/9bf1cf5b-1420-4c1b-91ad-e0f4631cbed4.png",
+                "state": "草稿",
+                "categoryId": 2,
+                "createTime": "2023-09-03 11:55:30",
+                "updateTime": "2023-09-03 11:55:30"
+            }
+        ]
+    }
+}
+```
 
 
 
