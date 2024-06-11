@@ -28,4 +28,6 @@ public interface ArticleMapper {
     //根据id删除
     @Delete("delete from article where id=#{id}")
     void deleteById(Integer id);
+
+    List<Article> listAll(Integer categoryId, String state);
 }

@@ -15,4 +15,6 @@ public interface ArticleService {
     void update(Article article);
 
     void deleteById(Integer id);
+
+    PageBean<Article> listAll(Integer pageNum, Integer pageSize, Integer categoryId, String state);
 }
