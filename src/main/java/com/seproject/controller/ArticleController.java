@@ -34,7 +34,7 @@ public class ArticleController {
        return Result.success(pb);
     }
 
-    @GetMapping("/public")
+    @GetMapping("/public")//公共文章列表
     public Result<PageBean<Article>> listAll(
             Integer pageNum,
             Integer pageSize,
